@@ -4,6 +4,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import authRoutes from "./routes/auth.js"
 import startupRoutes from "./routes/startups.js"
+import discussionRoutes from "./routes/discussions.js";
+
 
 dotenv.config()
 
@@ -27,7 +29,7 @@ mongoose
 // Routes
 app.use("/api/auth", authRoutes)
 app.use("/api/startups", startupRoutes)
-
+app.use("/api/discussions",discussionRoutes)
 // Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "Server is running" })
